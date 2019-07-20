@@ -1,7 +1,3 @@
-from bs4 import BeautifulSoup
-import urllib.request
-import re
-import lxml
 from libgen.libgen import Get
 
 libgenio = 'http://93.174.95.29'
