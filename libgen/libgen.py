@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import re
 import requests
+import time
 from urllib.parse import urljoin
 
 libgenio = 'http://93.174.95.29'
@@ -9,6 +10,7 @@ booksdl = 'http://libgen.io/get'
 
 
 class Get:
+
 	def __init__(self, isbn):
 		self.isbn = isbn
 		self.list_of_links = []
@@ -17,6 +19,7 @@ class Get:
 		self.soup = BeautifulSoup(self.search_page.content)
 
 	def link_from(self, mirror=libgenio, href_text='GET'):
+		start_time = time.time()
 		download_links = []
 
 		for links in self.soup.find_all('a', attrs={
@@ -34,6 +37,9 @@ class Get:
 					download_links.append((libgenme + dl_link.get('href')))
 				else:
 					download_links.append(dl_link.get('href'))
+
+		elapsed_time = time.time() - start_time
+		print(f"Search completed in {elapsed_time} seconds. {len(download_links)} link(s) found.")
 
 		return download_links
 
