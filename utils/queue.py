@@ -7,7 +7,7 @@ class Queue:
     dequeueing in worst-case O(1) time.
     '''
 
-    def __init__(self, max_size=100):  # Initialize this queue to the empty queue.
+    def __init__(self, max_size=1000):  # Initialize this queue to the empty queue.
         self._queue = deque(maxlen=max_size)
 
     def enqueue(self, item):  # Queues the passed item
