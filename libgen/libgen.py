@@ -16,7 +16,7 @@ class Get:
 		self.list_of_links = []
 		self.search_page = requests.get(f'http://gen.lib.rus.ec/search.php?req={self.isbn}&open=0&res=25&view=simple'
 										f'&phrase=1&column=def', stream=True)
-		self.soup = BeautifulSoup(self.search_page.content)
+		self.soup = BeautifulSoup(self.search_page.content, 'lxml')
 
 	def link_from(self, mirror=libgenio, href_text='GET'):
 		start_time = time.time()
