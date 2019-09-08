@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>384</width>
+    <height>325</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="isbn_label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Verdana&quot;;</string>
+    </property>
+    <property name="text">
+     <string>ISBN:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="progress_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;Verdana&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>40</y>
+      <width>221</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;Verdana&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>267</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLineEdit" name="isbn_textbox">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Verdana&quot;;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="get_link_btn">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Verdana&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>384</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionView_Help"/>
+   </widget>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionDark">
+   <property name="text">
+    <string>Dark</string>
+   </property>
+  </action>
+  <action name="actionLight">
+   <property name="text">
+    <string>Light</string>
+   </property>
+  </action>
+  <action name="actionView_Help">
+   <property name="text">
+    <string>View FAQ</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>isbn_textbox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>get_link_btn</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
